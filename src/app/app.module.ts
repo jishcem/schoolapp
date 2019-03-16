@@ -7,21 +7,30 @@ import {MenubarModule} from 'primeng/menubar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
-import {InputTextModule} from 'primeng/primeng';
+import {InputTextModule, PasswordModule} from 'primeng/primeng';
+import {httpInterceptorProviders} from './http-interceptors';
+import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MenubarModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    PasswordModule,
+    PanelModule,
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
